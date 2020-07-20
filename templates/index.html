@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  
+{% endblock head %}
+
+
+
+
+{% block body %}
+      <div class="jumbotron">
+        <div class="mx-auto" style="width: 400px;text-align: center;">
+            <h1 class="display-3">Game Deals</h1>
+            <p class="lead">Free Games to Browse and Download</p>
+        </div>
+        
+        <div class="row justify-content-center">
+          {% for game in games %}
+              <div class="col-xs-1-12 col-md-4 mt-5 d-flex">
+                <div class="card card text-white bg-dark text-left">
+                  <img class="card-img-top rounded img-fluid" src="{{ game.thumbnail }}" alt="">
+                  <div class="card-body flex-fill">
+                    <a href="{{ game.url }}">{{ game.title }}</a>
+                    <span class="badge badge-primary">{{ game.domain }}</span>
+                    <p><i class="fa fa-heart mr-1 heart" aria-hidden="true"></i>{{ game.score }}</p>
+                  </div>
+                </div>
+              </div>
+          {% endfor %}  
+        </div>
+      </div>
+{% endblock body %}
+    
