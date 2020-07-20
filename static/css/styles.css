@@ -1,0 +1,42 @@
+.jumbotron {
+    background: rgb(193,193,193);
+    background: linear-gradient(180deg, rgba(193,193,193,1) 0%, rgba(233,233,233,1) 48%, rgba(255,255,255,1) 100%);
+}
+
+
+.card-img-top {
+    width: 600px;
+    height: 250px;
+}
+
+
+h1 {
+    font-family: 'Ranchers';
+    font-size: 22px;
+}
+
+
+.lead {
+    font-family: 'Ranga';
+    font-size: 22px;
+}
+
+/* i:hover {
+    color: #ff0000;
+} */
+
+a:hover {
+    color: #ffffff;
+}
+
+
+.heart:hover i:hover {
+    color: #ff0000;
+}
+
+
+.navbar-brand img {
+    height: 40px;
+    width: 50px;
+    color: white;
+}
