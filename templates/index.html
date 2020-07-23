@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block head %}
   
 {% endblock head %}
@@ -18,10 +18,16 @@
           {% for game in games %}
               <div class="col-xs-1-12 col-md-4 mt-5 d-flex">
                 <div class="card card text-white bg-dark text-left">
-                  <img class="card-img-top rounded img-fluid" src="{{ game.thumbnail }}" alt="">
+                  {% if game.thumbnail != 'self' and game.thumbnail != 'default' and game.thumbnail != 'spoiler' %}
+                    <img class="card-img-top rounded img-fluid" src="{{ game.thumbnail }}" alt="">  
+                  {% else %}
+                    <img class="card-img-top rounded img-fluid" src="{% static 'images/default.jpg' %}" alt="noimage">
+                  {% endif %}
+                  
                   <div class="card-body flex-fill">
                     <a href="{{ game.url }}">{{ game.title }}</a>
                     <span class="badge badge-primary">{{ game.domain }}</span>
+                    <span class="badge badge-success">{{ game.discount }}</span>
                     <p><i class="fa fa-heart mr-1 heart" aria-hidden="true"></i>{{ game.score }}</p>
                   </div>
                 </div>
