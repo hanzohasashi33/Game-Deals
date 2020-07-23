@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  
+{% endblock head %}
+
+
+
+
+{% block body %}
+      <div class="jumbotron">
+        <div class="mx-auto" style="width: 400px;text-align: center;">
+            <h1 class="display-3">Game Deals</h1>
+            <p class="lead">Ongoing Game Deals</p>
+        </div>
+        
+        <div class="row justify-content-center">
+          {% for game in games %}
+              <div class="col-xs-1-12 col-md-4 mt-5 d-flex">
+                <div class="card card text-white bg-dark text-left">
+                  {% if game.thumbnail != 'self' and game.thumbnail != 'default' and game.thumbnail != 'spoiler' %}
+                    <img class="card-img-top rounded img-fluid" src="{{ game.thumbnail }}" alt="">  
+                  {% else %}
+                    <img class="card-img-top rounded img-fluid" src="{% static 'images/default.jpg' %}" alt="noimage">
+                  {% endif %}
+                  
+                  <div class="card-body flex-fill">
+                    <a href="{{ game.url }}">{{ game.title }}</a>
+                    <span class="badge badge-primary">{{ game.domain }}</span>
+                    <span class="badge badge-success">{{ game.discount }}</span>
+                    <p><i class="fa fa-heart mr-1 heart" aria-hidden="true"></i>{{ game.score }}</p>
+                  </div>
+                </div>
+              </div>
+          {% endfor %}  
+        </div>
+      </div>
+{% endblock body %}
+    
